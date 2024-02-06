@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTODO</title>
+</head>
+<body>
+    <h1 id="logo">MyTODO</h1>
+    <main>
+        <div id="sidebar">
+            <button id="delete-all-btn">Delete all</button>
+        </div>
+        <div id="display">
+            <h1 id="project-header"></h1>
+            <p id="date-display"></p>
+            <div id="tasks-container"></div>
+        </div>
+    </main>
+</body>
+<footer id="footer">
+    Development @ yuliaraitsyna
+</footer>
+<button id="add-btn">+</button>
+
+<div id="add-window">
+    <div id="task-btn">New task</div>
+    <div id="paper-btn">New paper</div>
+</div>
+<div id="project-window">
+    <button id="exit-project-window" class="exit">x</button>
+    <h2 id="project-window-header">New Paper</h2>
+    <input type="text" id="project-title" placeholder="Title">
+    <button id="create-project-btn">Create</button>
+</div>
+<div id="task-window">
+    <button id="exit-task-window" class="exit">x</button>
+    <h2 id="task-window-header">New Task</h2>
+    <p class="categories">Choose category:
+        <div id="urgent" class="category">Urgent</div>
+        <div id="normal" class="category">Normal</div>
+        <div id="longterm" class="category">Longterm</div>
+    </p>
+    <input type="text" id="task-title" placeholder="Title">
+    <input type="text" id="notes" placeholder="Notes">
+    <input type="date" id="deadline" placeholder="Deadline">
+    <button id="create-task-btn">Create</button>
+</div>
+
+</html>

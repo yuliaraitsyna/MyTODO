@@ -1,0 +1,320 @@
+body {
+    margin: 0;
+    background-color: var(--accent-color);
+    height: 100vh;
+}
+
+::-webkit-scrollbar{
+    width:0;
+}
+
+:root{
+    --bg-color: whitesmoke;
+    --bg-window-color: #CBCCFF;
+    --accent-color: #5B63B7 ;
+    --choose-color: #9296F0;
+    --wrong-input-outline-color: rgb(247, 91, 91);
+    --correct-input-outline-color: rgb(121, 230, 121);
+    --urgent-color: #ffec70;
+    --normal-color:hotpink;
+    --longterm-color:#65baff;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;500;900&display=swap');
+
+main {
+    margin:0;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo{
+    font-weight: bold;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 900;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background-color: var(--accent-color);
+    color: black;
+    font-family: 'Urbanist', sans-serif;
+    font-weight:300;
+}
+
+#add-btn {
+    display: block;
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+    width: 10vh;
+    aspect-ratio: 1/1;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: large;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+#add-btn:hover {
+    outline: solid white 1px;
+}
+
+#add-window{
+    display: none;
+    position:fixed;
+    bottom:15vh;
+    right:5vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:50vw;
+    max-width: 200px;
+    height: 20vh;
+    background-color: var(--bg-window-color);
+    color: black;
+    border:none;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#add-window.active{
+    display:flex;
+}
+
+#task-btn, #paper-btn{
+    display: flex;
+    width:100%;
+    color:black;
+    background-color: transparent;
+    height: 50%;
+    align-items: center;
+    justify-content:center;
+    text-align: center;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+}
+
+#task-btn:hover, #paper-btn:hover{
+    background-color: var(--choose-color);
+    color:white;
+}
+
+#create-btn{
+    color: black;
+    background-color: var(--accent-color);
+    width:30%;
+    height:10%;
+    border:none;
+    border-radius: 5px;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+}
+
+#display{
+    width:70vw;
+    height:100vh;
+    border:none;
+    background-color: whitesmoke;
+    z-index: 0;
+}
+
+#sidebar{
+    width:30vw;
+    height:100vh;
+    background-color: whitesmoke;
+    box-shadow: 5px 0px 5px rgb(167, 167, 167);
+    z-index: 1;
+}
+
+#project-window,
+#task-window {
+    display: none;
+    position: relative;
+    justify-content: last baseline;
+    padding-bottom: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+    background-color: var(--bg-window-color);
+    color:black;
+    width: 50vw;
+    max-width: fit-content;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    border:none;
+    border-radius: 10px;
+}
+
+#project-window {
+    justify-content: space-between;
+}
+
+#project-window.active, #task-window.active{
+    display:flex;
+    z-index: 1;
+}
+
+.categories{
+    width:90%;
+    display: flex;
+    flex-direction: column;
+    gap:10%;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+    color: black;
+}
+
+[class ^= "task-"].category{
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+}
+
+#urgent, #longterm, #normal{
+    width:90%;
+    border: solid transparent 2px;
+    text-align: center;
+    color:black;
+}
+
+#urgent.active{
+    border:solid white 2px;
+    border-radius: 7px;
+    background-color: var(--urgent-color);
+}
+
+#normal.active{
+    border:solid white 2px;
+    border-radius: 7px;
+    background-color: var(--normal-color);
+}
+
+#longterm.active{
+    border:solid white 2px;
+    border-radius: 7px;
+    background-color: var(--longterm-color);
+}
+
+[class^="project-"] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    border: solid lightgray 1px;
+    position: relative;
+    font-weight: 400;
+    font-family: 'Urbanist';
+    color: black;
+}
+
+.delete-project-btn, #exit-task-window, #exit-project-window {
+    width: 10px;
+    height: 10px;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+    color: grey;
+    text-align: center;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    border:none;
+    background-color: transparent;
+}
+
+#tasks-container{
+    height:80vh;
+    overflow: scroll;
+}
+
+#project-header {
+    margin-left: 5%;
+    font-weight: 900;
+    font-family: 'Urbanist';
+}
+
+#date-display {
+    margin-left: 5%;
+    font-weight: 400;
+    font-family: 'Urbanist';
+    color: grey;
+}
+
+[class^="task-"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 5px 5px rgba(167, 167, 167, 0.402);
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding:5%;
+}
+
+.title{
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+}
+
+.category {
+    font-family: 'Urbanist';
+    font-weight: 400;
+    width: 20%;
+    text-align: center;
+}
+
+.btn-container {
+    display:flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.complete-task-btn, .delete-task-btn {
+    color: white;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 7px;
+    width: 40%;
+    aspect-ratio: 3/1;
+}
+
+.deadline {
+    font-size: 14px;
+    font-weight: 300;
+    font-family: 'Urbanist';
+    color: grey;
+}
+
+.notes {
+    font-weight: 400;
+    font-family: 'Urbanist';
+    color: black;
+}
+
+.completed {
+    opacity: 70%;
+}
+
+#delete-all-btn {
+    background-color: black;
+    color:white;
+    width: 100%;
+    height: 5%;
+    border:none;
+}
