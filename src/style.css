@@ -234,7 +234,7 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 20px);
     height: 10%;
     text-align: center;
     border: solid lightgray 1px;
@@ -242,6 +242,7 @@ main {
     font-weight: 400;
     font-family: 'Urbanist';
     color: black;
+    padding: 10px;
 }
 
 .delete-project-btn, #exit-task-window, #exit-project-window {
@@ -303,6 +304,7 @@ main {
     display:flex;
     justify-content: space-between;
     width: 50%;
+    max-width: 300px;
 }
 
 .complete-task-btn, .delete-task-btn, #create-task-btn, #create-project-btn {
@@ -311,6 +313,7 @@ main {
     border: none;
     border-radius: 7px;
     width: 40%;
+    max-width: 100px;
     margin: 10px;
     aspect-ratio: 3/1;
 }
