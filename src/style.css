@@ -161,7 +161,7 @@ main {
     border-radius: 10px;
 }
 
-#task-window-header {
+#task-window-header, #project-window-header {
     font-weight: 900;
     font-family: 'Urbanist';
     color: black;
